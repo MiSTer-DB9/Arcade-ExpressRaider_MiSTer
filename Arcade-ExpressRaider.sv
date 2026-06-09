@@ -330,10 +330,10 @@ assign USER_OUT = USER_OUT_DRIVE;
 //   Coin2   <- joydb_1[6]  (C, convenience secondary coin)
 // P2 (joydb_2) puts Coin1/Coin2 at bits [6]/[7] where the P2-coin OR path reads them.
 wire [15:0] joy0 = joydb_1ena ? (OSD_STATUS ? 16'b0 :
-                     { 6'b0, joydb_1[6], joydb_1[11]|(joydb_1[10]&joydb_1[5]), joydb_1[9], joydb_1[10], joydb_1[5:4], joydb_1[3:0] })
+                     joydb_1_mapped[9:0])
                    : joy0_USB;
 wire [15:0] joy1 = joydb_2ena ? (OSD_STATUS ? 16'b0 :
-                     { 8'b0, joydb_2[11]|(joydb_2[10]&joydb_2[5]), joydb_2[6], joydb_2[5:4], joydb_2[3:0] })
+                     joydb_2_mapped[7:0])
                    : joydb_1ena ? joy0_USB : joy1_USB;
 // [MiSTer-DB9-Pro END]
 

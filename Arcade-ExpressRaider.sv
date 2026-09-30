@@ -373,7 +373,11 @@ hps_io #(.CONF_STR(CONF_STR)) hps_io
   .joystick_0         ( joy0_USB           ),
   .joystick_1         ( joy1_USB           ),
   // [MiSTer-DB9 BEGIN] - DB9/SNAC8 support: joy_raw
-  .joy_raw            ( OSD_STATUS ? joy_raw_payload : 16'b0 ),
+  .joy_raw            ( joy_raw_payload ),
+  // programmable remap matrix selector load (UIO_DB9_MAP 0xFD)
+  .db9_remap_cmd(db9_remap_cmd),
+  .db9_remap_byte_cnt(db9_remap_byte_cnt),
+  .db9_remap_din(db9_remap_din),
   // [MiSTer-DB9 END]
   .ps2_key            ( ps2_key            ),
   // [MiSTer-DB9-Pro BEGIN] - Saturn key gate

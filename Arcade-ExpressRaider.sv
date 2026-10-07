@@ -342,7 +342,7 @@ wire [15:0] joy0 = joydb_1ena ? (OSD_STATUS ? 16'b0 :
                      joydb_1_mapped[9:0])
                    : joy0_USB;
 wire [15:0] joy1 = joydb_2ena ? (OSD_STATUS ? 16'b0 :
-                     joydb_2_mapped[7:0])
+                     joydb_2_mapped[9:0])
                    : joydb_1ena ? joy0_USB : joy1_USB;
 // [MiSTer-DB9-Pro END]
 
